@@ -14,5 +14,7 @@ This is a slimmed down version of Laradock intended as a base for some of **my**
 
 ## Usage:
 * `git submodule add https://github.com/shaneparsons/laradock`
+* `cp env-example .env`
+  * change mysql credentials in .env
 * `cd laradock && docker-compose up -d`
 
