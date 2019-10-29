@@ -13,8 +13,27 @@ This is a slimmed down version of Laradock intended as a base for some of **my**
 * mailhog
 
 ## Usage:
-* `git submodule add https://github.com/shaneparsons/laradock`
-* `cp env-example .env`
-  * change mysql credentials in .env
-* `cd laradock && docker-compose up -d`
+```bash
+git submodule add https://github.com/shaneparsons/laradock
 
+cd laradock
+
+cp env-example .env
+
+# change mysql credentials in .env
+
+# if using laravel-horizon:
+
+  cp laravel-horizon/supervisord.d/laravel-horizon.conf.example\
+  laravel-horizon/supervisord.d/laravel-horizon.conf
+
+# if using scheduling:
+
+  cp php-worker/supervisord.d/laravel-scheduler.conf.example\
+  php-worker/supervisord.d/laravel-scheduler.conf
+
+  # Note: you can also add `laravel-horizon.conf` here, if both are needed.
+  # this avoids needing to add `laravel-horizon` seperately
+
+docker-compose up -d
+```
